@@ -92,9 +92,10 @@ public class MainActivity extends AppCompatActivity {
             HashMap<String, String> info_user = new HashMap<String, String>();
             info_user.put("user_name", user.getDisplayName());
             info_user.put("user_email", user.getEmail());
+            info_user.put("user_email_verificated", String.valueOf(user.isEmailVerified()));
             info_user.put("user_photo", String.valueOf(user.getPhotoUrl()));
             info_user.put("user_id", user.getUid());
-            info_user.put("user_phone", user.getPhoneNumber());
+            info_user.put("user_number",user.getPhoneNumber());
             finish();
             Intent intent = new Intent(this, PerfilUsuario.class);
             intent.putExtra("info_user", info_user);

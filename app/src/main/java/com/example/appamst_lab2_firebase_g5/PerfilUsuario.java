@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 
 public class PerfilUsuario extends AppCompatActivity {
 
-    TextView txt_id, txt_name, txt_email;
+    TextView txt_id, txt_name, txt_email, txt_location;
     ImageView imv_photo;
     DatabaseReference db_reference;
 
@@ -30,12 +31,13 @@ public class PerfilUsuario extends AppCompatActivity {
         txt_id = findViewById(R.id.txt_userId);
         txt_name = findViewById(R.id.txt_nombre);
         txt_email = findViewById(R.id.txt_correo);
+        txt_location = findViewById(R.id.txt_location);
         imv_photo = findViewById(R.id.imv_foto);
-
-
+        Log.d("info",info_user.toString());
         txt_id.setText(info_user.get("user_id"));
         txt_name.setText(info_user.get("user_name"));
         txt_email.setText(info_user.get("user_email"));
+        txt_location.setText(info_user.get("user_email_verificated"));
         String photo = info_user.get("user_photo");
         Picasso.get().load(photo).into(imv_photo);
     }
